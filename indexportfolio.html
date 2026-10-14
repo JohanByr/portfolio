@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Johan Boyer — Développeur, Toulouse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f2f2f2;--mute:#8a8a92;--line:#26262c;--acc:#6f86ff;--d:'Syne','Arial Black',sans-serif;--b:'Hanken Grotesk',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--b);overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+nav{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(18px + env(safe-area-inset-top,0px)) 28px 18px}
+nav .logo{font:800 18px var(--d)}
+nav ul{display:flex;gap:22px;list-style:none;padding:0;flex-wrap:wrap;justify-content:flex-end}
+nav li button{padding:4px 0;border-bottom:2px solid transparent;color:var(--mute);transition:color .2s}
+nav li button:hover,nav li button.on{color:var(--ink);border-color:var(--acc)}
+.page{position:absolute;inset:0;display:none;padding:100px 28px 40px;overflow:auto}
+.page.on{display:block}
+#accueil{padding:0;overflow:hidden}
+.hero{position:absolute;left:0;bottom:0;z-index:2;padding:0 28px 7vh;pointer-events:none}
+.hero h1{font:800 clamp(40px,5.5vw,92px)/1 var(--d);letter-spacing:-.03em}
+.hero p{max-width:46ch;margin-top:12px;color:var(--mute);font-size:17px}
+.hero .meta{margin-top:14px;color:var(--mute);font-size:15px}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:60%;perspective:520px;perspective-origin:50% 0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 40%);mask-image:linear-gradient(to bottom,transparent,#000 40%)}
+.floor::before{content:"";position:absolute;left:0;right:0;top:0;height:220%;transform-origin:50% 0;transform:rotateX(75deg);background:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px) 0 0/100% 70px,linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px) 0 0/70px 100%}
+.stage{position:absolute;left:0;right:0;top:42%;translate:0 -50%;height:clamp(240px,48vh,400px);perspective:1200px}
+.card{position:absolute;left:50%;width:min(52vw,660px);margin-left:calc(min(52vw,660px)/-2);top:0;bottom:0;padding:22px;text-align:left;background:linear-gradient(135deg,#0c0c0f 55%,#161a33);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .3s}
+.card.act{border-color:var(--acc);cursor:pointer}
+.card h3{font:800 clamp(28px,3.6vw,46px)/1 var(--d);letter-spacing:-.02em}
+.card small{color:var(--mute);font-size:15px}
+.card em{font-style:normal;color:var(--acc);font-weight:500}
+.hint{position:absolute;right:5vw;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:3;color:var(--mute);font-size:14px}
+:root{--R:min(40vh,42vw,430px)}
+.gl{position:absolute;left:50%;top:46%;width:calc(var(--R)*2.82);height:calc(var(--R)*2.82);translate:-50% -50%;z-index:3;pointer-events:none;opacity:0}
+.pro{position:absolute;left:50%;top:46%;translate:-50% -50%;width:calc(var(--R)*1.5);text-align:center;z-index:4;opacity:0;pointer-events:none;transition:opacity .4s}
+.pro.show{opacity:1;pointer-events:auto;transition:opacity .8s 1.2s}
+.pro .row{font-size:clamp(18px,calc(var(--R)*.085),30px);padding:calc(var(--R)*.04) 0}
+.sk{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--R)*.07) calc(var(--R)*.1);text-align:left;font-size:clamp(12px,calc(var(--R)*.04),15px)}
+.sk h3{font:800 clamp(13px,calc(var(--R)*.05),17px) var(--d);margin-bottom:4px}
+.sk ul{padding:0;list-style:none}
+.sk li{padding:3px 0;border-top:1px solid var(--line)}
+@keyframes bub{from{clip-path:circle(0 at var(--bx,50%) var(--by,50%))}to{clip-path:circle(150vmax at var(--bx,50%) var(--by,50%))}}
+.page.bub{animation:bub .95s cubic-bezier(.65,0,.25,1) both}
+.page.bubout{animation:bub .8s cubic-bezier(.65,0,.25,1) reverse both}
+#detail{background:var(--bg)}
+.pro p{font:500 clamp(14px,calc(var(--R)*.05),19px)/1.45 var(--b)}
+.pro .m{margin:16px 0;color:var(--mute);font-size:clamp(12px,calc(var(--R)*.036),14px)}
+.lk{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;font-size:15px}
+.lk a,.lk button{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.lk a:hover,.lk button:hover{color:var(--acc);border-color:var(--acc)}
+.close{display:none;font-weight:500}
+body.prof nav ul{display:none}
+body.prof .close{display:block}
+.hero,.hint{transition:opacity .5s}
+body.prof .hero,body.prof .hint,body.prof .card{opacity:0;pointer-events:none}
+.wrap{max-width:1000px;margin:0 auto}
+.page h2.t{font:800 clamp(40px,7vw,96px)/.95 var(--d);letter-spacing:-.025em;margin-bottom:34px}
+.row{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid var(--line);font:600 clamp(22px,3.4vw,40px)/1.1 var(--d);width:100%;text-align:left;transition:padding .25s,color .25s}
+.row:hover{padding-left:14px;color:var(--acc)}
+.row small{font:400 15px var(--b);color:var(--mute);align-self:center}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.cols h3,.det h3{font:800 20px var(--d);margin-bottom:10px}
+.cols ul,.det ul{padding:0;list-style:none}
+.cols li,.det li{padding:8px 0;border-top:1px solid var(--line)}
+.big{display:block;font:800 clamp(28px,6vw,80px)/1.05 var(--d);text-decoration:none;overflow-wrap:anywhere;margin:6px 0 26px}
+.big:hover{color:var(--acc)}
+.back{color:var(--mute);margin-bottom:26px}
+.back:hover{color:var(--acc)}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.tags span{border:1px solid var(--line);border-radius:99px;padding:3px 14px;font-size:14px}
+.cta{display:inline-block;margin-top:18px;background:var(--ink);color:var(--bg);padding:12px 26px;border-radius:99px;text-decoration:none;font-weight:500;transition:background .2s}
+.cta:hover{background:var(--acc);color:#fff}
+.shot{aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;text-align:center;color:var(--mute);margin:34px 0;background:repeating-linear-gradient(135deg,transparent 0 14px,var(--line) 14px 15px)}
+.det p{max-width:62ch;margin-bottom:34px}
+.nx{display:flex;justify-content:space-between;margin-top:40px;border-top:1px solid var(--line);padding-top:18px}
+@media (max-width:760px){nav{flex-direction:column;align-items:flex-start;gap:8px}nav ul{gap:14px;justify-content:flex-start}.page{padding-top:120px}.cols{grid-template-columns:1fr}.stage{top:38%;height:30vh}.card{width:78vw;margin-left:-39vw;padding:16px}.hint{left:28px;right:auto;bottom:auto;top:calc(100px + env(safe-area-inset-top,0px))}.hero p{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav>
+<button class="logo" data-go="accueil" aria-label="Accueil">Johan Boyer</button>
+<ul>
+<li><button data-go="accueil">Projets</button></li>
+<li><button data-ov="index">Index</button></li>
+<li><button data-ov="competences">Compétences</button></li>
+<li><button data-ov="profil">Profil</button></li>
+</ul>
+<button class="close" id="close" data-close>Fermer</button>
+</nav>
+<main>
+<section class="page on" id="accueil">
+<div class="floor"></div>
+<canvas class="gl" id="gl"></canvas>
+<div class="pro" id="ov-profil"><p>Je suis Johan Boyer, étudiant en BTS SIO option SLAM à Toulouse. Je conçois des sites et des applications qui répondent à un besoin concret, et je cherche une alternance ou un stage pour continuer à progresser.</p><div class="m">2<sup>e</sup> année · Lycée Marie Curie, Tarbes</div><div class="lk"><a href="mailto:ton@email.fr">Email</a><a href="#">LinkedIn</a><a href="#">GitHub</a><button data-ov="competences">Compétences</button></div></div>
+<div class="pro" id="ov-index"><div><button class="row" data-open="0">Depanne31 <small>2026</small></button><button class="row" data-open="1">OOMS Rénovation <small>Projet web</small></button><button class="row" data-open="2" style="border-bottom:1px solid var(--line)">Projet 3 <small>à venir</small></button></div></div>
+<div class="pro" id="ov-competences"><div class="sk">
+<div><h3>Développement d'applications</h3><ul><li>Java</li><li>Programmation orientée objet</li><li>Algorithmique</li></ul></div>
+<div><h3>Développement web</h3><ul><li>HTML et CSS</li><li>JavaScript</li><li>PHP</li><li>WordPress</li></ul></div>
+<div><h3>Données</h3><ul><li>SQL</li><li>Conception de bases de données</li></ul></div>
+<div><h3>Outils et méthode</h3><ul><li>Git et GitHub</li><li>Documentation</li><li>Travail en équipe</li></ul></div>
+</div></div>
+<div class="hero"><h1>Johan Boyer</h1><p>Étudiant en BTS SIO option SLAM, je crée des sites et des applications utiles, à Toulouse.</p><div class="meta">2<sup>e</sup> année · Lycée Marie Curie, Tarbes</div></div>
+<div class="stage" id="stage">
+</div>
+<div class="hint">Scrolle pour parcourir, clique pour ouvrir</div>
+</section>
+
+
+<section class="page" id="detail"><div class="wrap det" id="det"></div></section>
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var P=[
+{t:'Depanne31',y:'2026',k:'Dépannage 24h/24 à Toulouse',tech:['Projet BTS SIO SLAM','WordPress'],url:'https://depanne31.fr/',
+ctx:'Depanne31 met en relation des particuliers de Toulouse et de son agglomération avec des artisans disponibles jour et nuit : serrurerie, plomberie, électricité et chauffage.',
+feat:['Tarifs fixes affichés pour chaque service, avec trois familles : urgences de nuit, urgences de jour et interventions courantes','Un formulaire de demande pré-rempli selon le service choisi','Espaces de connexion et d\u2019inscription','Pages Contact et Partenaires','Pages légales : mentions, RGPD, CGU, CGV et cookies','Galerie d\u2019interventions']},
+{t:'OOMS Rénovation',y:'Projet web',k:'Site web d\u2019une entreprise de rénovation',tech:['Netlify','À compléter'],url:'https://oms-renovation.netlify.app/',ctx:'Site web de l\u2019entreprise OOMS Rénovation, mis en ligne sur Netlify. À compléter : le but du site et la demande du client.',feat:['À compléter : les pages et les fonctionnalités du site','À compléter : les technologies utilisées']},
+{t:'Projet 3',y:'À venir',k:'À compléter',tech:['À compléter'],ctx:'Décris ici le contexte et le but de ce projet.',feat:['Ce que fait le projet','Les technologies utilisées']}];
+var btns=document.querySelectorAll('nav li button'),cur='accueil',busy=false,ov=null,det=document.getElementById('det'),pA=document.getElementById('accueil'),pD=document.getElementById('detail');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function mark(){btns.forEach(function(b){var on=b.dataset.ov!==undefined?ov===b.dataset.ov:(!ov&&(cur==='accueil'||cur==='detail'));b.classList.toggle('on',on)})}
+function clearOv(){ov=null;document.body.classList.remove('prof');document.querySelectorAll('.pro').forEach(function(p){p.classList.remove('show')});mark()}
+function setOv(name){if(!name){clearOv()}else{ov=name;document.body.classList.add('prof');document.querySelectorAll('.pro').forEach(function(p){p.classList.toggle('show',p.id==='ov-'+name)});mark()}try{history.replaceState(null,'','#'+(name||'accueil'))}catch(e){}}
+function open(n,ev){if(busy)return;if(cur==='detail'){render(n);return}
+busy=true;render(n);var kb=!ev||!(ev.detail>0);
+pD.style.setProperty('--bx',(kb?innerWidth/2:ev.clientX)+'px');pD.style.setProperty('--by',(kb?innerHeight/2:ev.clientY)+'px');
+cur='detail';mark();pD.classList.add('on','bub');
+setTimeout(function(){pD.classList.remove('bub');pA.classList.remove('on');clearOv();busy=false},rm?0:960)}
+function closeDetail(cb){if(busy)return;busy=true;pA.classList.add('on');cur='accueil';mark();pD.classList.remove('bub');pD.classList.add('bubout');
+setTimeout(function(){pD.classList.remove('on','bubout');busy=false;try{history.replaceState(null,'','#accueil')}catch(e){}if(cb)cb()},rm?0:820)}
+function render(n){var p=P[n],q=P[(n+1)%P.length];
+det.innerHTML='<button class="back" data-go="accueil">← Retour aux projets</button><h2 class="t">'+p.t+'</h2><p style="color:var(--mute);margin:-14px 0 0">'+p.k+' · '+p.y+'</p><div class="tags">'+p.tech.map(function(x){return'<span>'+x+'</span>'}).join('')+'</div>'+(p.url?'<a class="cta" href="'+p.url+'" target="_blank" rel="noopener">Voir le site</a>':'')+'<div class="shot">Ajoute ici une capture d\u2019écran</div><h3>Contexte</h3><p>'+p.ctx+'</p><h3>Ce que propose le projet</h3><ul style="margin-bottom:34px">'+p.feat.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><h3>Mon rôle</h3><p style="color:var(--mute)">À compléter : ce que tu as fait toi-même, les difficultés rencontrées et ce que tu as appris.</p><div class="nx"><span></span><button class="back" style="margin:0" data-open="'+((n+1)%P.length)+'">Projet suivant : '+q.t+' →</button></div>';
+det.parentNode.scrollTop=0;try{history.replaceState(null,'','#p'+n)}catch(e){}}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-go],[data-open],[data-ov],[data-close]');if(!b)return;
+if(b.dataset.open!==undefined)open(+b.dataset.open,e);
+else if(b.dataset.ov!==undefined){var nm=b.dataset.ov;if(cur==='detail')closeDetail(function(){setOv(nm)});else setOv(nm)}
+else if(b.dataset.close!==undefined)setOv(null);
+else{if(cur==='detail')closeDetail();else setOv(null)}});
+/* carrousel 3D */
+var stage=document.getElementById('stage'),cards=[],i=0;
+P.forEach(function(p,n){var c=document.createElement('button');c.className='card';c.innerHTML='<small>'+p.y+'</small><h3>'+p.t+'</h3><small>'+p.k+' <em>· ouvrir</em></small>';c.onclick=function(e){if(n===i)open(n,e);else place(n)};stage.appendChild(c);cards.push(c)});
+function place(n){i=Math.max(0,Math.min(P.length-1,n));cards.forEach(function(c,j){c.classList.toggle('act',j===i);c.tabIndex=j===i?0:-1})}
+place(0);
+var pos=0,pf=0,lc=0;
+function frame(t){requestAnimationFrame(frame);var dt=Math.min((t-lc)/1000||.016,.05);lc=t;if(cur!=='accueil')return;
+pos+=(i-pos)*(rm?1:1-Math.exp(-dt*6));if(Math.abs(i-pos)<.001)pos=i;
+var tp=document.body.classList.contains('prof')?1:0;pf+=(tp-pf)*(rm?1:1-Math.exp(-dt*3));if(Math.abs(tp-pf)<.002)pf=tp;
+cards.forEach(function(c,j){var d=j-pos,a=Math.abs(d),z=-a*180*(1-pf)-320*pf,sc=(1-a*.06)*(1-pf)+.8*pf,on=Math.max(0,Math.min(1-a*.4,(1.7-a)*2)),op=on*(1-pf)+Math.min(a,1)*.55*pf;
+c.style.transform='translateX('+d*(108+32*pf)+'%) translateZ('+z+'px) rotateY('+(-d*(24+6*pf))+'deg) scale('+sc+')';c.style.opacity=op;c.style.zIndex=Math.round(90-a*10)});}
+requestAnimationFrame(frame);
+var wl=0,ac=document.getElementById('accueil');
+var acc=0,at;ac.addEventListener('wheel',function(e){if(document.body.classList.contains('prof'))return;var t=Date.now(),dd=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;acc+=dd;clearTimeout(at);at=setTimeout(function(){acc=0},160);if(Math.abs(acc)>50&&t-wl>380){wl=t;place(i+(acc>0?1:-1));acc=0}},{passive:true});
+var sy=0;ac.addEventListener('touchstart',function(e){sy=e.touches[0].clientX},{passive:true});
+ac.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sy;if(Math.abs(d)>40)place(i+(d<0?1:-1))},{passive:true});
+document.addEventListener('keydown',function(e){if(cur!=='accueil')return;if(e.key==='Escape')setOv(null);if(document.body.classList.contains('prof'))return;if(e.key==='ArrowRight')place(i+1);if(e.key==='ArrowLeft')place(i-1);if(e.key==='Enter'&&document.activeElement===document.body)open(i)});
+try{
+var cv=document.getElementById('gl'),RP=0,lt=0;
+var rd=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+rd.setPixelRatio(Math.min(devicePixelRatio||1,2));rd.toneMapping=THREE.ACESFilmicToneMapping;rd.outputEncoding=THREE.sRGBEncoding;
+var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,50);cam.position.z=7;
+var es=new THREE.Scene();es.background=new THREE.Color(0x000000);
+function pl(c,w,h,x,y,z){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c,side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);es.add(m)}
+pl(0xffffff,12,3,0,8,2);pl(0x6f86ff,3,12,-9,0,0);pl(0xff9a5c,3,9,9,0,3);pl(0xffffff,9,2,0,-8,-3);pl(0xcfd6ff,5,5,0,0,-10);pl(0x2038ff,7,2,0,-3,9);pl(0xffffff,2,8,6,2,-6);
+var env=new THREE.PMREMGenerator(rd).fromScene(es,.02).texture;
+var tor=new THREE.Mesh(new THREE.TorusGeometry(1.7,.24,96,220),new THREE.MeshStandardMaterial({color:0xffffff,metalness:1,roughness:.16,envMap:env,envMapIntensity:1.5}));
+sc.add(tor);
+function loop(t){requestAnimationFrame(loop);var dt=Math.min((t-lt)/1000||.016,.05);lt=t;
+var tg=document.body.classList.contains('prof')?1:0;RP=rm?tg:(tg>RP?Math.min(tg,RP+dt/1.6):Math.max(tg,RP-dt/1.1));
+cv.style.opacity=RP>0?1:0;if(RP===0)return;
+var w=cv.clientWidth,h=cv.clientHeight;if(w&&(cv.width!==Math.round(w*rd.getPixelRatio())||cv.height!==Math.round(h*rd.getPixelRatio()))){rd.setSize(w,h,false)}
+var e=RP<.5?4*RP*RP*RP:1-Math.pow(-2*RP+2,3)/2;tor.scale.setScalar(Math.max(.001,e));
+tor.rotation.set(-.12,.16-(1-e)*1.2,0);
+rd.render(sc,cam)}
+requestAnimationFrame(loop);
+}catch(err){}
+var h=location.hash.slice(1),m=/^p(\d+)$/.exec(h);
+if(m&&P[+m[1]]){pA.classList.remove('on');pD.classList.add('on');cur='detail';mark();render(+m[1])}else if(h==='profil'||h==='index'||h==='competences')setOv(h);
+})();
+</script>
+</body>
+</html>
