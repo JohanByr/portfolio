@@ -30,11 +30,11 @@ nav li button:hover,nav li button.on{color:var(--ink);border-color:var(--acc)}
 .floor{position:absolute;left:-50%;right:-50%;bottom:0;height:60%;perspective:520px;perspective-origin:50% 0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 40%);mask-image:linear-gradient(to bottom,transparent,#000 40%)}
 .floor::before{content:"";position:absolute;left:0;right:0;top:0;height:220%;transform-origin:50% 0;transform:rotateX(75deg);background:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px) 0 0/100% 70px,linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px) 0 0/70px 100%}
 .stage{position:absolute;left:0;right:0;top:42%;translate:0 -50%;height:clamp(240px,48vh,400px);perspective:1200px}
-.card{position:absolute;left:50%;width:min(52vw,660px);margin-left:calc(min(52vw,660px)/-2);top:0;bottom:0;padding:22px;text-align:left;background:linear-gradient(135deg,#0c0c0f 55%,#161a33);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .3s}
-.card.act{border-color:var(--acc);cursor:pointer}
-.card h3{font:800 clamp(28px,3.6vw,46px)/1 var(--d);letter-spacing:-.02em}
-.card small{color:var(--mute);font-size:15px}
-.card em{font-style:normal;color:var(--acc);font-weight:500}
+.card{position:absolute;left:50%;width:min(52vw,660px);margin-left:calc(min(52vw,660px)/-2);top:0;bottom:0;padding:22px;text-align:left;background:var(--cbg,linear-gradient(135deg,#0c0c0f 55%,#161a33));border:1px solid var(--cline,var(--line));border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .3s}
+.card.act{border-color:var(--cacc,var(--acc));cursor:pointer}
+.card h3{font:800 clamp(28px,3.6vw,46px)/1 var(--d);letter-spacing:-.02em;color:var(--cink,var(--ink))}
+.card small{color:var(--cmute,var(--mute));font-size:15px}
+.card em{font-style:normal;color:var(--cacc,var(--acc));font-weight:500}
 .hint{position:absolute;right:5vw;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:3;color:var(--mute);font-size:14px}
 :root{--R:min(40vh,42vw,430px)}
 .gl{position:absolute;left:50%;top:46%;width:calc(var(--R)*2.82);height:calc(var(--R)*2.82);translate:-50% -50%;z-index:3;pointer-events:none;opacity:0}
@@ -74,8 +74,8 @@ body.prof .hero,body.prof .hint,body.prof .card{opacity:0;pointer-events:none}
 .back:hover{color:var(--acc)}
 .tags{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
 .tags span{border:1px solid var(--line);border-radius:99px;padding:3px 14px;font-size:14px}
-.cta{display:inline-block;margin-top:18px;background:var(--ink);color:var(--bg);padding:12px 26px;border-radius:99px;text-decoration:none;font-weight:500;transition:background .2s}
-.cta:hover{background:var(--acc);color:#fff}
+.cta{display:inline-block;margin-top:18px;background:var(--ctab,var(--ink));color:var(--ctac,var(--bg));padding:12px 26px;border-radius:99px;text-decoration:none;font-weight:500;transition:background .2s}
+.cta:hover{background:var(--ctab,var(--acc));color:var(--ctac,#fff);filter:brightness(1.15)}
 .shot{aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;text-align:center;color:var(--mute);margin:34px 0;background:repeating-linear-gradient(135deg,transparent 0 14px,var(--line) 14px 15px)}
 .det p{max-width:62ch;margin-bottom:34px}
 .nx{display:flex;justify-content:space-between;margin-top:40px;border-top:1px solid var(--line);padding-top:18px}
@@ -111,21 +111,24 @@ body.prof .hero,body.prof .hint,body.prof .card{opacity:0;pointer-events:none}
 </div>
 <div class="hint">Scrolle pour parcourir, clique pour ouvrir</div>
 </section>
-
-
+ 
+ 
 <section class="page" id="detail"><div class="wrap det" id="det"></div></section>
-
-
+ 
+ 
 </main>
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
 var P=[
 {t:'Depanne31',y:'2026',k:'Dépannage 24h/24 à Toulouse',tech:['Projet BTS SIO SLAM','WordPress'],url:'https://depanne31.fr/',
 ctx:'Depanne31 met en relation des particuliers de Toulouse et de son agglomération avec des artisans disponibles jour et nuit : serrurerie, plomberie, électricité et chauffage.',
-feat:['Tarifs fixes affichés pour chaque service, avec trois familles : urgences de nuit, urgences de jour et interventions courantes','Un formulaire de demande pré-rempli selon le service choisi','Espaces de connexion et d\u2019inscription','Pages Contact et Partenaires','Pages légales : mentions, RGPD, CGU, CGV et cookies','Galerie d\u2019interventions']},
-{t:'OMS Rénovation',y:'Projet web',k:'Site web d\u2019une entreprise de rénovation',tech:['Netlify','À compléter'],url:'https://oms-renovation.netlify.app/',ctx:'Site web de l\u2019entreprise OMS Rénovation, mis en ligne sur Netlify. À compléter : le but du site et la demande du client.',feat:['À compléter : les pages et les fonctionnalités du site','À compléter : les technologies utilisées']},
+feat:['Tarifs fixes affichés pour chaque service, avec trois familles : urgences de nuit, urgences de jour et interventions courantes','Un formulaire de demande pré-rempli selon le service choisi','Espaces de connexion et d\u2019inscription','Pages Contact et Partenaires','Pages légales : mentions, RGPD, CGU, CGV et cookies','Galerie d\u2019interventions'],th:{cbg:'linear-gradient(135deg,#1c2238 60%,#2a3354)',bg:'#1c2238',ink:'#f5f3ee',mute:'#9aa3bd',line:'#35405f',acc:'#f5a623',ctab:'#f5a623',ctac:'#1c2238'}},
+{t:'OMS Rénovation',y:'Projet web',k:'Site vitrine d\u2019une entreprise de rénovation à Toulouse',tech:['Site vitrine','Netlify'],url:'https://oms-renovation.netlify.app/',
+ctx:'Site de l\u2019entreprise OMS Rénovation, qui coordonne les métiers du bâtiment pour des rénovations clés en main à Toulouse et dans son agglomération.',
+feat:['Page d\u2019accueil avec une accroche et un bouton pour démarrer un projet','Pages Accueil, Réalisations, À propos et Contact','Bouton « Demander un devis » dans le menu','Section Nos prestations, par exemple la rénovation intérieure complète'],
+th:{cbg:'linear-gradient(135deg,#221e1b 60%,#322b26)',bg:'#221e1b',ink:'#e9e5dd',mute:'#a39d93',line:'#3d3731',acc:'#d8703f',ctab:'#b8552b',ctac:'#ffffff'}},
 {t:'Projet 3',y:'À venir',k:'À compléter',tech:['À compléter'],ctx:'Décris ici le contexte et le but de ce projet.',feat:['Ce que fait le projet','Les technologies utilisées']}];
 var btns=document.querySelectorAll('nav li button'),cur='accueil',busy=false,ov=null,det=document.getElementById('det'),pA=document.getElementById('accueil'),pD=document.getElementById('detail');
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -139,7 +142,7 @@ cur='detail';mark();pD.classList.add('on','bub');
 setTimeout(function(){pD.classList.remove('bub');pA.classList.remove('on');clearOv();busy=false},rm?0:960)}
 function closeDetail(cb){if(busy)return;busy=true;pA.classList.add('on');cur='accueil';mark();pD.classList.remove('bub');pD.classList.add('bubout');
 setTimeout(function(){pD.classList.remove('on','bubout');busy=false;try{history.replaceState(null,'','#accueil')}catch(e){}if(cb)cb()},rm?0:820)}
-function render(n){var p=P[n],q=P[(n+1)%P.length];
+function render(n){var p=P[n],q=P[(n+1)%P.length],T=p.th||{};['bg','ink','mute','line','acc','ctab','ctac'].forEach(function(k){if(T[k])pD.style.setProperty('--'+k,T[k]);else pD.style.removeProperty('--'+k)});
 det.innerHTML='<button class="back" data-go="accueil">← Retour aux projets</button><h2 class="t">'+p.t+'</h2><p style="color:var(--mute);margin:-14px 0 0">'+p.k+' · '+p.y+'</p><div class="tags">'+p.tech.map(function(x){return'<span>'+x+'</span>'}).join('')+'</div>'+(p.url?'<a class="cta" href="'+p.url+'" target="_blank" rel="noopener">Voir le site</a>':'')+'<div class="shot">Ajoute ici une capture d\u2019écran</div><h3>Contexte</h3><p>'+p.ctx+'</p><h3>Ce que propose le projet</h3><ul style="margin-bottom:34px">'+p.feat.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><h3>Mon rôle</h3><p style="color:var(--mute)">À compléter : ce que tu as fait toi-même, les difficultés rencontrées et ce que tu as appris.</p><div class="nx"><span></span><button class="back" style="margin:0" data-open="'+((n+1)%P.length)+'">Projet suivant : '+q.t+' →</button></div>';
 det.parentNode.scrollTop=0;try{history.replaceState(null,'','#p'+n)}catch(e){}}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-go],[data-open],[data-ov],[data-close]');if(!b)return;
@@ -149,7 +152,7 @@ else if(b.dataset.close!==undefined)setOv(null);
 else{if(cur==='detail')closeDetail();else setOv(null)}});
 /* carrousel 3D */
 var stage=document.getElementById('stage'),cards=[],i=0;
-P.forEach(function(p,n){var c=document.createElement('button');c.className='card';c.innerHTML='<small>'+p.y+'</small><h3>'+p.t+'</h3><small>'+p.k+' <em>· ouvrir</em></small>';c.onclick=function(e){if(n===i)open(n,e);else place(n)};stage.appendChild(c);cards.push(c)});
+P.forEach(function(p,n){var c=document.createElement('button');c.className='card';if(p.th){var T=p.th;c.style.setProperty('--cbg',T.cbg);c.style.setProperty('--cink',T.ink);c.style.setProperty('--cmute',T.mute);c.style.setProperty('--cacc',T.acc);c.style.setProperty('--cline',T.line)}c.innerHTML='<small>'+p.y+'</small><h3>'+p.t+'</h3><small>'+p.k+' <em>· ouvrir</em></small>';c.onclick=function(e){if(n===i)open(n,e);else place(n)};stage.appendChild(c);cards.push(c)});
 function place(n){i=Math.max(0,Math.min(P.length-1,n));cards.forEach(function(c,j){c.classList.toggle('act',j===i);c.tabIndex=j===i?0:-1})}
 place(0);
 var pos=0,pf=0,lc=0;
@@ -190,3 +193,4 @@ if(m&&P[+m[1]]){pA.classList.remove('on');pD.classList.add('on');cur='detail';ma
 </script>
 </body>
 </html>
+ 
