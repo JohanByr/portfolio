@@ -99,7 +99,7 @@ body.prof .hero,body.prof .hint,body.prof .card{opacity:0;pointer-events:none}
 <div class="floor"></div>
 <canvas class="gl" id="gl"></canvas>
 <div class="pro" id="ov-profil"><p>Je suis Johan Boyer, étudiant en BTS SIO option SLAM à Toulouse. Je conçois des sites et des applications qui répondent à un besoin concret, et je cherche une alternance ou un stage pour continuer à progresser.</p><div class="m">2<sup>e</sup> année · Lycée Marie Curie, Tarbes</div><div class="lk"><a href="mailto:ton@email.fr">Email</a><a href="#">LinkedIn</a><a href="#">GitHub</a><button data-ov="competences">Compétences</button></div></div>
-<div class="pro" id="ov-index"><div><button class="row" data-open="0">Depanne31 <small>2026</small></button><button class="row" data-open="1">OMS Rénovation <small>Projet web</small></button><button class="row" data-open="2" style="border-bottom:1px solid var(--line)">Projet 3 <small>à venir</small></button></div></div>
+<div class="pro" id="ov-index"><div><button class="row" data-open="0">Depanne31 <small>2026</small></button><button class="row" data-open="1">OMS Rénovation <small>Projet web</small></button><button class="row" data-open="2" style="border-bottom:1px solid var(--line)">Casse-briques <small>Projet Java</small></button></div></div>
 <div class="pro" id="ov-competences"><div class="sk">
 <div><h3>Développement d'applications</h3><ul><li>Java</li><li>Programmation orientée objet</li><li>Algorithmique</li></ul></div>
 <div><h3>Développement web</h3><ul><li>HTML et CSS</li><li>JavaScript</li><li>PHP</li><li>WordPress</li></ul></div>
@@ -111,25 +111,30 @@ body.prof .hero,body.prof .hint,body.prof .card{opacity:0;pointer-events:none}
 </div>
 <div class="hint">Scrolle pour parcourir, clique pour ouvrir</div>
 </section>
- 
- 
+
+
 <section class="page" id="detail"><div class="wrap det" id="det"></div></section>
- 
- 
+
+
 </main>
- 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
 var P=[
-{t:'Depanne31',y:'2026',k:'Dépannage 24h/24 à Toulouse',tech:['Projet BTS SIO SLAM','WordPress'],url:'https://depanne31.fr/',
-ctx:'Depanne31 met en relation des particuliers de Toulouse et de son agglomération avec des artisans disponibles jour et nuit : serrurerie, plomberie, électricité et chauffage.',
-feat:['Tarifs fixes affichés pour chaque service, avec trois familles : urgences de nuit, urgences de jour et interventions courantes','Un formulaire de demande pré-rempli selon le service choisi','Espaces de connexion et d\u2019inscription','Pages Contact et Partenaires','Pages légales : mentions, RGPD, CGU, CGV et cookies','Galerie d\u2019interventions'],th:{cbg:'linear-gradient(135deg,#1c2238 60%,#2a3354)',bg:'#1c2238',ink:'#f5f3ee',mute:'#9aa3bd',line:'#35405f',acc:'#f5a623',ctab:'#f5a623',ctac:'#1c2238'}},
+{t:'Depanne31',y:'2026',k:'Application web de dépannage à Toulouse',tech:['HTML, CSS, JavaScript','Supabase'],url:'https://johanbyr.github.io/Depanne31/',lbl:'Voir le site',url2:'https://github.com/JohanByr/Depanne31',lbl2:'Voir le code',
+ctx:'Application web d\u2019une seule page pour un service de dépannage à Toulouse (serrurerie, plomberie, électricité et chauffage). Les comptes, la galerie, les avis et le catalogue de services passent par Supabase. Le parcours des demandes d\u2019intervention et le paiement sont simulés dans le navigateur.',
+feat:['Trois rôles : client, technicien (validé par un administrateur) et administrateur','Parcours d\u2019une demande : un technicien disponible la valide, le client paie, puis l\u2019intervention démarre, se termine et reçoit un avis','Tarifs jour et nuit appliqués automatiquement selon l\u2019heure (nuit de 20h à 8h)','Facture imprimable avec la TVA à 20 %','Galerie avant / après avec un curseur de comparaison, et avis clients publiés après validation','Catalogue de services modifiable par les techniciens, et pages légales (mentions, CGU, CGV, RGPD, cookies)'],
+th:{cbg:'linear-gradient(135deg,#111111 62%,#1d3a8a)',bg:'#111111',ink:'#efece5',mute:'#a8a499',line:'#3a3a38',acc:'#f2b705',ctab:'#d62828',ctac:'#ffffff'}},
 {t:'OMS Rénovation',y:'Projet web',k:'Site vitrine d\u2019une entreprise de rénovation à Toulouse',tech:['Site vitrine','Netlify'],url:'https://oms-renovation.netlify.app/',
 ctx:'Site de l\u2019entreprise OMS Rénovation, qui coordonne les métiers du bâtiment pour des rénovations clés en main à Toulouse et dans son agglomération.',
 feat:['Page d\u2019accueil avec une accroche et un bouton pour démarrer un projet','Pages Accueil, Réalisations, À propos et Contact','Bouton « Demander un devis » dans le menu','Section Nos prestations, par exemple la rénovation intérieure complète'],
 th:{cbg:'linear-gradient(135deg,#221e1b 60%,#322b26)',bg:'#221e1b',ink:'#e9e5dd',mute:'#a39d93',line:'#3d3731',acc:'#d8703f',ctab:'#b8552b',ctac:'#ffffff'}},
-{t:'Projet 3',y:'À venir',k:'À compléter',tech:['À compléter'],ctx:'Décris ici le contexte et le but de ce projet.',feat:['Ce que fait le projet','Les technologies utilisées']}];
+{t:'Casse-briques',y:'Projet Java',k:'Jeu de casse-briques en Java, réalisé à trois',tech:['Java','Swing','Équipe de 3'],url:'https://github.com/levygrd/cassebriques',lbl:'Voir le code',
+ctx:'Jeu de casse-briques développé en Java avec deux autres personnes, Lucas et Lévy. Le joueur renvoie une balle avec une raquette pour détruire un mur de briques, sur un fond de thème spatial.',
+feat:['Briques spéciales : la raquette rétrécit ou s\u2019agrandit, la balle se dédouble (jusqu\u2019à 5 balles), une brique résiste à 3 chocs','Bonus qui tombent et effets limités à 10 secondes','Menu principal, pause, menu de relance et score affiché pendant la partie','Trois niveaux avec des murs différents'],
+role:'J\u2019ai conçu le système de vies (3 vies, affichées en bas de l\u2019écran), la progression sur trois niveaux avec des murs différents, et un mode test dans Mur.java (la constante MODE_TEST) qui accélère les parties pour vérifier les changements de niveau. Lucas a fait les briques spéciales, la physique et le menu de relance. Lévy a fait les bonus, la pause, les menus, le score et l\u2019interface.',
+th:{cbg:'linear-gradient(135deg,#0b1022 60%,#1b1d4a)',bg:'#0b1022',ink:'#e8ecff',mute:'#8f9ac4',line:'#26305a',acc:'#4fd1ff',ctab:'#4fd1ff',ctac:'#0b1022'}}];
 var btns=document.querySelectorAll('nav li button'),cur='accueil',busy=false,ov=null,det=document.getElementById('det'),pA=document.getElementById('accueil'),pD=document.getElementById('detail');
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function mark(){btns.forEach(function(b){var on=b.dataset.ov!==undefined?ov===b.dataset.ov:(!ov&&(cur==='accueil'||cur==='detail'));b.classList.toggle('on',on)})}
@@ -143,7 +148,7 @@ setTimeout(function(){pD.classList.remove('bub');pA.classList.remove('on');clear
 function closeDetail(cb){if(busy)return;busy=true;pA.classList.add('on');cur='accueil';mark();pD.classList.remove('bub');pD.classList.add('bubout');
 setTimeout(function(){pD.classList.remove('on','bubout');busy=false;try{history.replaceState(null,'','#accueil')}catch(e){}if(cb)cb()},rm?0:820)}
 function render(n){var p=P[n],q=P[(n+1)%P.length],T=p.th||{};['bg','ink','mute','line','acc','ctab','ctac'].forEach(function(k){if(T[k])pD.style.setProperty('--'+k,T[k]);else pD.style.removeProperty('--'+k)});
-det.innerHTML='<button class="back" data-go="accueil">← Retour aux projets</button><h2 class="t">'+p.t+'</h2><p style="color:var(--mute);margin:-14px 0 0">'+p.k+' · '+p.y+'</p><div class="tags">'+p.tech.map(function(x){return'<span>'+x+'</span>'}).join('')+'</div>'+(p.url?'<a class="cta" href="'+p.url+'" target="_blank" rel="noopener">Voir le site</a>':'')+'<div class="shot">Ajoute ici une capture d\u2019écran</div><h3>Contexte</h3><p>'+p.ctx+'</p><h3>Ce que propose le projet</h3><ul style="margin-bottom:34px">'+p.feat.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><h3>Mon rôle</h3><p style="color:var(--mute)">À compléter : ce que tu as fait toi-même, les difficultés rencontrées et ce que tu as appris.</p><div class="nx"><span></span><button class="back" style="margin:0" data-open="'+((n+1)%P.length)+'">Projet suivant : '+q.t+' →</button></div>';
+det.innerHTML='<button class="back" data-go="accueil">← Retour aux projets</button><h2 class="t">'+p.t+'</h2><p style="color:var(--mute);margin:-14px 0 0">'+p.k+' · '+p.y+'</p><div class="tags">'+p.tech.map(function(x){return'<span>'+x+'</span>'}).join('')+'</div>'+(p.url?'<a class="cta" href="'+p.url+'" target="_blank" rel="noopener">'+(p.lbl||'Voir le site')+'</a>':'')+(p.url2?'<a class="cta" href="'+p.url2+'" target="_blank" rel="noopener" style="margin-left:10px;background:transparent;color:var(--ink);border:1px solid var(--line)">'+(p.lbl2||'Voir le code')+'</a>':'')+'<div class="shot">Ajoute ici une capture d\u2019écran</div><h3>Contexte</h3><p>'+p.ctx+'</p><h3>Ce que propose le projet</h3><ul style="margin-bottom:34px">'+p.feat.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><h3>Mon rôle</h3>'+(p.role?'<p>'+p.role+'</p>':'<p style="color:var(--mute)">À compléter : ce que tu as fait toi-même, les difficultés rencontrées et ce que tu as appris.</p>')+'<div class="nx"><span></span><button class="back" style="margin:0" data-open="'+((n+1)%P.length)+'">Projet suivant : '+q.t+' →</button></div>';
 det.parentNode.scrollTop=0;try{history.replaceState(null,'','#p'+n)}catch(e){}}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-go],[data-open],[data-ov],[data-close]');if(!b)return;
 if(b.dataset.open!==undefined)open(+b.dataset.open,e);
@@ -193,4 +198,3 @@ if(m&&P[+m[1]]){pA.classList.remove('on');pD.classList.add('on');cur='detail';ma
 </script>
 </body>
 </html>
- 
