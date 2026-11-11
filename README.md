@@ -1,6 +1,6 @@
 # Portfolio — Johan Boyer
 
-Portfolio personnel de Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie (Tarbes), basé à Toulouse.
+Portfolio personnel de Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie (Tarbes), basé à Tarbes.
 
 **Site en ligne :** https://johanbyr.github.io/portfolio/
 
