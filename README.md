@@ -48,4 +48,4 @@ Le site est publié avec GitHub Pages, depuis la branche `main` et le dossier ra
 
 ## Contact
 
-Email : à compléter
+Email : johanboyer09@gmail.com
