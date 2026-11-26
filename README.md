@@ -1,6 +1,6 @@
 # Portfolio — Johan Boyer
 
-Portfolio personnel de Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie (Tarbes), basé à Tarbes.
+Portfolio personnel de Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie (Tarbes), basé à Toulouse.
 
 **Site en ligne :** https://johanbyr.github.io/portfolio/
 
@@ -9,8 +9,9 @@ Portfolio personnel de Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO
 - **Accueil** : un carrousel 3D qui présente les projets. On défile à la molette, avec les flèches du clavier ou en glissant sur mobile, et on clique sur un projet pour ouvrir sa page détaillée.
 - **Pages projet** : contexte, fonctionnalités, technologies et rôle, avec une ouverture en bulle.
 - **Index** : la liste de tous les projets.
-- **Compétences** et **Profil** : ils s'ouvrent dans un anneau 3D chromé.
+- **Rubriques** (Compétences et Profil, qui contient le CV, le stage, les certifications et la charte graphique) : elles s'ouvrent en pleine page, avec un anneau 3D chromé qui s'agrandit comme transition.
 - Fond noir avec un sol quadrillé en perspective.
+- Le CV (`cv-johan-boyer.pdf`) et la présentation de veille (`veille-informatique-spatiale.pdf`) sont téléchargeables. Les deux fichiers PDF doivent rester à côté de `index.html`.
 
 ## Technologies
 
@@ -42,9 +43,10 @@ Le site est publié avec GitHub Pages, depuis la branche `main` et le dossier ra
 
 ## Projets présentés
 
-- [Depanne31](https://johanbyr.github.io/Depanne31/) : application web de dépannage à Toulouse (HTML, CSS, JavaScript et Supabase). [Code source](https://github.com/JohanByr/Depanne31).
-- [OMS Rénovation](https://oms-renovation.netlify.app/) : site vitrine d'une entreprise de rénovation à Toulouse, hébergé sur Netlify.
-- [Casse-briques](https://github.com/levygrd/cassebriques) : jeu en Java réalisé à trois, avec Lucas et Lévy (projet de groupe).
+- [Depanne31](https://johanbyr.github.io/Depanne31/) : application web de dépannage à Toulouse (HTML, CSS, JavaScript et Supabase), réalisée pendant mon stage. [Code source](https://github.com/JohanByr/Depanne31).
+- [OMS Rénovation](https://johanbyr.github.io/Oms-Renovations/) : site vitrine d'une entreprise de rénovation à Toulouse (HTML, CSS, JavaScript et Supabase), réalisé pendant mon stage. [Code source](https://github.com/JohanByr/Oms-Renovations).
+- [Casse-briques](https://github.com/levygrd/cassebriques) : jeu en Java réalisé à trois, avec Lucas et Lévy (projet de groupe réalisé à l'école).
+- **Veille technologique** : l'informatique spatiale (réalité augmentée et interfaces 3D), réalisée à l'école.
 
 ## Contact
 
