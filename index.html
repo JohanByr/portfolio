@@ -120,6 +120,34 @@ body.prof .tg{opacity:0;pointer-events:none}
 .shots{display:flex;gap:16px;flex-wrap:wrap;margin:34px 0;align-items:flex-start}
 .shots img{width:100%;border:1px solid var(--line);border-radius:12px;height:auto;display:block}
 .shots.sm img{width:calc(50% - 8px);max-width:340px}
+
+/* ===== pages : même design que l'accueil ===== */
+.pro{display:block;padding:104px 28px 90px;background:#000}
+.pro>*{max-width:none;margin:0}
+.pro .floor{position:fixed;z-index:-1}
+.pro .pt{position:static;font:800 clamp(36px,4.4vw,72px)/1 var(--d);letter-spacing:-.03em;margin:0}
+.pro p.s,.pro.lg p.s{font:400 17px/1.5 var(--b);color:var(--mute);margin:10px 0 0;max-width:60ch}
+.bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:34px;align-items:start}
+.bk{border:1px solid var(--line);border-radius:14px;padding:22px 26px;background:#0c0c0f}
+.bk h4{font:700 12px var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0 0 12px}
+.bk p,.pro.lg .bk p{font:400 15px/1.6 var(--b);margin:0 0 8px;max-width:none}
+.bk ul{padding:0;margin:0;list-style:none}
+.bk li{padding:9px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5}
+.bk li:first-child{border-top:0;padding-top:0}
+.bk b{font-weight:500}
+.dl{margin-top:22px}
+.ix{margin-top:34px}
+.pro .row{font-size:clamp(20px,2.6vw,34px);padding:20px 0}
+#ov-profil{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:clamp(24px,5vw,80px);align-content:start}
+#ov-profil .pt{grid-column:1/-1;margin-bottom:34px}
+#ov-profil>p{grid-column:1;grid-row:2;font:400 clamp(18px,1.55vw,23px)/1.6 var(--b);max-width:52ch;margin:0}
+#ov-profil .m{grid-column:1;grid-row:3;color:var(--mute);margin:14px 0 0;font-size:15px}
+.tl{grid-column:2;grid-row:2/span 2;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;align-content:start}
+.tl a,.tl button{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:#0c0c0f;font:800 17px var(--d);text-align:left;color:var(--ink);text-decoration:none;transition:border-color .2s}
+.tl a::after,.tl button::after{content:"→";color:var(--mute)}
+.tl a:hover,.tl button:hover{border-color:var(--acc)}
+@media (max-width:860px){.pro{padding:96px 20px 80px}#ov-profil{display:block}#ov-profil>p{margin-top:0}.tl{margin-top:28px}}
+.pro:not(.show){display:none!important}
 </style>
 </head>
 <body>
@@ -136,37 +164,38 @@ body.prof .tg{opacity:0;pointer-events:none}
 <section class="page on" id="accueil">
 <div class="floor"></div>
 <canvas class="gl" id="gl"></canvas>
-<div class="pro" id="ov-profil"><p>Je suis Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie à Tarbes, après un Bac Pro Systèmes Numériques à Toulouse. Depuis la seconde, j'ai fait plusieurs stages en dépannage et en maintenance informatique.</p><div class="m">Toulouse · 2<sup>e</sup> année de BTS SIO SLAM</div><div class="lk"><a href="mailto:johanboyer09@gmail.com">Email</a><a href="https://github.com/JohanByr" target="_blank" rel="noopener">GitHub</a><button data-ov="cv">CV</button></div><div class="lk"><button data-ov="stage">Stage</button><button data-ov="certifications">Certifications</button><button data-ov="charte">Charte graphique</button></div></div>
-<div class="pro" id="ov-index"><div><button class="row" data-open="0">Depanne31 <small>Réalisé en stage</small></button><button class="row" data-open="1">OMS Rénovation <small>Réalisé en stage</small></button><button class="row" data-open="2">Casse-briques <small>Réalisé à l'école</small></button><button class="row" data-open="3" style="border-bottom:1px solid var(--line)">Veille technologique <small>Réalisée à l'école</small></button></div></div>
-<div class="pro lg" id="ov-competences"><h3 class="pt">Compétences</h3><div class="sk">
-<div><h3>Développement d'applications</h3><ul><li>Java (projet casse-briques)</li></ul></div>
-<div><h3>Développement web</h3><ul><li>HTML et CSS</li><li>JavaScript</li></ul></div>
-<div><h3>Données et services</h3><ul><li>Supabase : comptes, base de données, stockage de fichiers</li></ul></div>
-<div><h3>Maintenance informatique</h3><ul><li>Réparation et montage de PC</li><li>Installation et dépannage de logiciels</li><li>Diagnostic de disques (HD Tune, CrystalDiskInfo)</li></ul></div>
-<div><h3>Outils et méthode</h3><ul><li>Git et GitHub</li><li>Travail en équipe</li></ul></div>
+<div class="pro" id="ov-profil"><h3 class="pt">Profil</h3><p>Je suis Johan Boyer, étudiant en 2<sup>e</sup> année de BTS SIO option SLAM au lycée Marie Curie à Tarbes, après un Bac Pro Systèmes Numériques à Toulouse. Depuis la seconde, j'ai fait plusieurs stages en dépannage et en maintenance informatique.</p><div class="m">Toulouse · 2<sup>e</sup> année de BTS SIO SLAM</div><div class="tl"><a href="mailto:johanboyer09@gmail.com">Email</a><a href="https://github.com/JohanByr" target="_blank" rel="noopener">GitHub</a><button data-ov="cv">CV</button><button data-ov="stage">Stage</button><button data-ov="certifications">Certifications</button><button data-ov="charte">Charte graphique</button></div></div>
+<div class="pro" id="ov-index"><h3 class="pt">Projets</h3><div class="ix"><button class="row" data-open="0">Depanne31 <small>Réalisé en stage</small></button><button class="row" data-open="1">OMS Rénovation <small>Réalisé en stage</small></button><button class="row" data-open="2">Casse-briques <small>Réalisé à l'école</small></button><button class="row" data-open="3" style="border-bottom:1px solid var(--line)">Veille technologique <small>Réalisée à l'école</small></button></div></div>
+<div class="pro lg" id="ov-competences"><h3 class="pt">Compétences</h3><p class="s">Ce que je sais faire, d'après mes projets et mes stages.</p><div class="bg">
+<section class="bk"><h4>Développement d'applications</h4><ul><li>Java (projet casse-briques)</li></ul></section>
+<section class="bk"><h4>Développement web</h4><ul><li>HTML et CSS</li><li>JavaScript</li></ul></section>
+<section class="bk"><h4>Données et services</h4><ul><li>Supabase : comptes, base de données, stockage de fichiers</li></ul></section>
+<section class="bk"><h4>Maintenance informatique</h4><ul><li>Réparation et montage de PC</li><li>Installation et dépannage de logiciels</li><li>Diagnostic de disques (HD Tune, CrystalDiskInfo)</li></ul></section>
+<section class="bk"><h4>Outils et méthode</h4><ul><li>Git et GitHub</li><li>Travail en équipe</li></ul></section>
 </div></div>
-<div class="pro lg" id="ov-stage"><h3 class="pt">Stages de BTS SIO</h3><p class="s">Entreprise : Détail Services</p>
-<h4>Stage de première année</h4><p>Du 18 mai au 20 juin 2026.</p>
-<h4>Stage de deuxième année</h4><p>Du 4 janvier au 5 février 2027 (à venir).</p>
-<h4>Réalisations</h4><p>Pendant mon stage, j'ai réalisé les sites Depanne31 et OMS Rénovation.</p></div>
+<div class="pro lg" id="ov-stage"><h3 class="pt">Stages de BTS SIO</h3><p class="s">Entreprise : Détail Services</p><div class="bg">
+<section class="bk"><h4>Stage de première année</h4><p>Du 18 mai au 20 juin 2026.</p></section>
+<section class="bk"><h4>Stage de deuxième année</h4><p>Du 4 janvier au 5 février 2027 (à venir).</p></section>
+<section class="bk"><h4>Réalisations</h4><p>Pendant mon stage, j'ai réalisé les sites Depanne31 et OMS Rénovation.</p></section>
+</div></div>
 <div class="pro lg" id="ov-cv"><h3 class="pt">CV</h3><p class="s">Étudiant en 2<sup>e</sup> année de BTS SIO option SLAM</p>
-<div><a class="cta" href="cv-johan-boyer.pdf" download>Télécharger le CV (PDF)</a></div>
-<h4>Formations</h4><ul><li><b>BTS SIO option SLAM</b>, en cours (2<sup>e</sup> année)<br>Lycée Marie Curie, Tarbes</li><li><b>Bac Pro Systèmes Numériques</b>, 2022 à 2025<br>Lycée Déodat de Séverac, Toulouse</li></ul>
-<h4>Stages</h4><ul>
+<div class="dl"><a class="cta" href="cv-johan-boyer.pdf" download>Télécharger le CV (PDF)</a></div><div class="bg">
+<section class="bk"><h4>Formations</h4><ul><li><b>BTS SIO option SLAM</b>, en cours (2<sup>e</sup> année)<br>Lycée Marie Curie, Tarbes</li><li><b>Bac Pro Systèmes Numériques</b>, 2022 à 2025<br>Lycée Déodat de Séverac, Toulouse</li></ul></section>
+<section class="bk"><h4>Stages</h4><ul>
 <li><b>Détail Services</b>, du 18 mai au 20 juin 2026 (BTS SIO)</li>
 <li><b>HighTech Service</b>, Tournefeuille, nov. à déc. 2024 (6 semaines) : réparation et nettoyage de PC, téléphones et consoles, installation de logiciels</li>
 <li><b>CYBERTEK</b>, Portet-sur-Garonne, janv. et juin à juil. 2024 : réparation, montage et maintenance de PC, ajout de composants, installation de logiciels</li>
 <li><b>ORDIPAUSE</b>, Muret, avril 2023 : installation de logiciels, analyse de disques, mises à jour et nettoyage de PC</li>
-<li><b>RTE</b>, Toulouse, janvier 2023 : kiosque informatique (installation et dépannage de PC et d'iPhone), visite des armoires réseau et du dispatching, surveillance du réseau</li></ul>
-<h4>Certifications</h4><ul><li>PIX</li></ul>
-<h4>Qualités</h4><p>Consciencieux, travailleur, curieux, à l'écoute, manuel, esprit d'équipe.</p>
-<h4>Langues et centres d'intérêt</h4><p>Anglais et espagnol (niveau scolaire). Moto et jeux vidéo.</p></div>
-<div class="pro lg" id="ov-certifications"><h3 class="pt">Certifications</h3><ul><li><b>PIX</b> : certification des compétences numériques</li></ul></div>
-<div class="pro lg" id="ov-charte"><h3 class="pt">Charte graphique</h3>
-<h4>Couleurs du portfolio</h4><p><i class="sw" style="background:#000000"></i>Fond <i class="sw" style="background:#f2f2f2"></i>Texte <i class="sw" style="background:#8a8a92"></i>Gris <i class="sw" style="background:#6f86ff"></i>Accent</p>
-<h4>Polices</h4><p>Syne pour les titres, Hanken Grotesk pour les textes.</p>
-<h4>Principes</h4><ul><li>Fond noir avec un sol quadrillé en perspective</li><li>Projets présentés dans un carrousel 3D</li><li>Un anneau chromé pour ouvrir les rubriques</li><li>Chaque projet reprend les couleurs de son site</li></ul>
-<h4>Palettes des projets</h4><ul><li><b>Depanne31</b> <i class="sw" style="background:#111111"></i><i class="sw" style="background:#1d3a8a"></i><i class="sw" style="background:#d62828"></i><i class="sw" style="background:#f2b705"></i></li><li><b>OMS Rénovation</b> <i class="sw" style="background:#2b1710"></i><i class="sw" style="background:#a63d2a"></i><i class="sw" style="background:#f6e9dd"></i></li><li><b>Casse-briques</b> <i class="sw" style="background:#0b1022"></i><i class="sw" style="background:#4fd1ff"></i></li></ul></div>
+<li><b>RTE</b>, Toulouse, janvier 2023 : kiosque informatique (installation et dépannage de PC et d'iPhone), visite des armoires réseau et du dispatching, surveillance du réseau</li></ul></section>
+<section class="bk"><h4>Certifications</h4><ul><li>PIX</li></ul><h4 style="margin-top:22px">Qualités</h4><p>Consciencieux, travailleur, curieux, à l'écoute, manuel, esprit d'équipe.</p><h4 style="margin-top:22px">Langues et centres d'intérêt</h4><p>Anglais et espagnol (niveau scolaire). Moto et jeux vidéo.</p></section>
+</div></div>
+<div class="pro lg" id="ov-certifications"><h3 class="pt">Certifications</h3><div class="bg"><section class="bk"><h4>Obtenue</h4><ul><li><b>PIX</b> : certification des compétences numériques</li></ul></section></div></div>
+<div class="pro lg" id="ov-charte"><h3 class="pt">Charte graphique</h3><p class="s">Les choix de design de ce portfolio.</p><div class="bg">
+<section class="bk"><h4>Couleurs du portfolio</h4><p><i class="sw" style="background:#000000"></i>Fond <i class="sw" style="background:#f2f2f2"></i>Texte <i class="sw" style="background:#8a8a92"></i>Gris <i class="sw" style="background:#6f86ff"></i>Accent</p></section>
+<section class="bk"><h4>Polices</h4><p>Syne pour les titres, Hanken Grotesk pour les textes.</p></section>
+<section class="bk"><h4>Principes</h4><ul><li>Fond noir avec un sol quadrillé en perspective</li><li>Projets présentés dans un carrousel 3D</li><li>Un anneau chromé pour ouvrir les rubriques</li><li>Chaque projet reprend les couleurs de son site</li></ul></section>
+<section class="bk"><h4>Palettes des projets</h4><ul><li><b>Depanne31</b> <i class="sw" style="background:#111111"></i><i class="sw" style="background:#1d3a8a"></i><i class="sw" style="background:#d62828"></i><i class="sw" style="background:#f2b705"></i></li><li><b>OMS Rénovation</b> <i class="sw" style="background:#2b1710"></i><i class="sw" style="background:#a63d2a"></i><i class="sw" style="background:#f6e9dd"></i></li><li><b>Casse-briques</b> <i class="sw" style="background:#0b1022"></i><i class="sw" style="background:#4fd1ff"></i></li></ul></section>
+</div></div>
 <div class="hero"><h1>Johan Boyer</h1><p>Étudiant en BTS SIO option SLAM, je crée des sites et des applications utiles, à Toulouse.</p><div class="meta">2<sup>e</sup> année · Lycée Marie Curie, Tarbes</div></div>
 <div class="stage" id="stage">
 </div>
@@ -207,11 +236,11 @@ feat:['Janvier 2026 : l\u2019IA visuelle « Edge »','Mars 2026 : standardisatio
 more:[['Cas d\u2019usage','Exemple de ma présentation : un technicien qui contrôle une machine avec un casque de réalité augmentée, les mesures affichées devant lui.'],['Enjeux et risques','Vie privée, santé et charge mentale, autonomie des appareils.'],['Conclusion','L\u2019espace est notre nouvelle interface.']],
 norole:1,
 th:{cbg:'linear-gradient(135deg,#0d1517 60%,#11393a)',bg:'#0d1517',ink:'#e8eeee',mute:'#8fa3a3',line:'#2a3b3d',acc:'#2bb5a3',ctab:'#e8590c',ctac:'#ffffff'}}];
-var glOK=false,btns=document.querySelectorAll('nav li button'),cur='accueil',busy=false,ov=null,det=document.getElementById('det'),pA=document.getElementById('accueil'),pD=document.getElementById('detail');
+var glOK=false,curHR=0,btns=document.querySelectorAll('nav li button'),cur='accueil',busy=false,ov=null,det=document.getElementById('det'),pA=document.getElementById('accueil'),pD=document.getElementById('detail');
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function mark(){btns.forEach(function(b){var on=b.dataset.ov!==undefined?ov===b.dataset.ov:(!ov&&(cur==='accueil'||cur==='detail'));b.classList.toggle('on',on)})}
 function clearOv(){ov=null;document.body.classList.remove('prof','sw');if(!glOK)document.querySelectorAll('.pro').forEach(function(p){p.classList.remove('show')});mark()}
-function setOv(name){if(!name){clearOv()}else{document.body.classList.toggle('sw',!!ov);ov=name;document.body.classList.add('prof');document.querySelectorAll('.pro').forEach(function(p){p.classList.toggle('show',p.id==='ov-'+name)});mark()}try{history.replaceState(null,'','#'+(name||'accueil'))}catch(e){}}
+function setOv(name){if(!name){clearOv()}else{document.body.classList.toggle('sw',!!ov);ov=name;document.body.classList.add('prof');document.querySelectorAll('.pro').forEach(function(p){var on=p.id==='ov-'+name;p.classList.toggle('show',on);if(on)p.style.clipPath='circle('+curHR+'px at 50% 50%)'});mark()}try{history.replaceState(null,'','#'+(name||'accueil'))}catch(e){}}
 function open(n,ev){if(busy)return;if(cur==='detail'){render(n);return}
 busy=true;render(n);var kb=!ev||!(ev.detail>0);
 pD.style.setProperty('--bx',(kb?innerWidth/2:ev.clientX)+'px');pD.style.setProperty('--by',(kb?innerHeight/2:ev.clientY)+'px');
@@ -227,15 +256,17 @@ if(b.dataset.open!==undefined)open(+b.dataset.open,e);
 else if(b.dataset.ov!==undefined){var nm=b.dataset.ov;if(cur==='detail')closeDetail(function(){setOv(nm)});else setOv(nm)}
 else if(b.dataset.close!==undefined)setOv(null);
 else{if(cur==='detail')closeDetail();else setOv(null)}});
+document.querySelectorAll('.pro').forEach(function(p){var f=document.createElement('div');f.className='floor';p.insertBefore(f,p.firstChild)});
 /* carrousel 3D */
 var stage=document.getElementById('stage'),cards=[],i=0;
 P.forEach(function(p,n){var c=document.createElement('button');c.className='card';if(p.img)c.classList.add('im');if(p.th){var T=p.th;c.style.setProperty('--cbg',T.cbg);c.style.setProperty('--cink',T.ink);c.style.setProperty('--cmute',T.mute);c.style.setProperty('--cacc',T.acc);c.style.setProperty('--cline',T.line)}c.innerHTML=(p.img?'<img class="cimg" src="'+p.img+'" alt="" style="object-fit:'+(p.fit||'cover')+';object-position:'+(p.fit?'center':'top left')+'">':'')+'<small>'+p.y+'</small><h3>'+p.t+'</h3><small>'+p.k+' <em>· ouvrir</em></small>';c.onclick=function(e){if(n===i)open(n,e);else place(n)};stage.appendChild(c);cards.push(c)});
 function place(n){i=Math.max(0,Math.min(P.length-1,n));cards.forEach(function(c,j){c.classList.toggle('act',j===i);c.tabIndex=j===i?0:-1})}
 place(0);
-var pos=0,pf=0,lc=0;
+var pos=0,pf=0,lc=0,lp=-1,lf=-1;
 function frame(t){requestAnimationFrame(frame);var dt=Math.min((t-lc)/1000||.016,.05);lc=t;if(cur!=='accueil')return;
 pos+=(i-pos)*(rm?1:1-Math.exp(-dt*6));if(Math.abs(i-pos)<.001)pos=i;
 var tp=document.body.classList.contains('prof')?1:0;pf+=(tp-pf)*(rm?1:1-Math.exp(-dt*3));if(Math.abs(tp-pf)<.002)pf=tp;
+if(pos===lp&&pf===lf)return;lp=pos;lf=pf;
 cards.forEach(function(c,j){var d=j-pos,a=Math.abs(d),z=-a*180*(1-pf)-320*pf,sc=(1-a*.06)*(1-pf)+.8*pf,on=Math.max(0,Math.min(1-a*.4,(1.7-a)*2)),op=on*(1-pf)+Math.min(a,1)*.55*pf;
 c.style.transform='translateX('+d*(108+32*pf)+'%) translateZ('+z+'px) rotateY('+(-d*(24+6*pf))+'deg) scale('+sc+')';c.style.opacity=op;c.style.zIndex=Math.round(90-a*10)});}
 requestAnimationFrame(frame);
@@ -247,27 +278,31 @@ document.addEventListener('keydown',function(e){if(cur!=='accueil')return;if(e.k
 try{
 var cv=document.getElementById('gl'),RP=0,lt=0;
 var rd=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
-rd.setPixelRatio(Math.min(devicePixelRatio||1,2));rd.toneMapping=THREE.ACESFilmicToneMapping;rd.outputEncoding=THREE.sRGBEncoding;
+rd.setPixelRatio(Math.min(devicePixelRatio||1,1.25));rd.toneMapping=THREE.ACESFilmicToneMapping;rd.outputEncoding=THREE.sRGBEncoding;
 var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,50);cam.position.z=7;
 var es=new THREE.Scene();es.background=new THREE.Color(0x000000);
 function pl(c,w,h,x,y,z){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c,side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);es.add(m)}
 pl(0xffffff,12,3,0,8,2);pl(0x6f86ff,3,12,-9,0,0);pl(0xff9a5c,3,9,9,0,3);pl(0xffffff,9,2,0,-8,-3);pl(0xcfd6ff,5,5,0,0,-10);pl(0x2038ff,7,2,0,-3,9);pl(0xffffff,2,8,6,2,-6);
 var env=new THREE.PMREMGenerator(rd).fromScene(es,.02).texture;
-var tor=new THREE.Mesh(new THREE.TorusGeometry(1.7,.24,96,220),new THREE.MeshStandardMaterial({color:0xffffff,metalness:1,roughness:.16,envMap:env,envMapIntensity:1.5}));
+var tg0=new THREE.TorusGeometry(1,1,48,128),NV=tg0.attributes.position.count,PA=tg0.attributes.position.array,NA=tg0.attributes.normal.array,UA=tg0.attributes.uv.array,CU=new Float32Array(NV),SU=new Float32Array(NV);
+for(var q=0;q<NV;q++){CU[q]=Math.cos(UA[2*q]*Math.PI*2);SU[q]=Math.sin(UA[2*q]*Math.PI*2)}
+function shape(R,r){for(var q=0;q<NV;q++){var o=3*q;PA[o]=R*CU[q]+r*NA[o];PA[o+1]=R*SU[q]+r*NA[o+1];PA[o+2]=r*NA[o+2]}tg0.attributes.position.needsUpdate=true}
+var tor=new THREE.Mesh(tg0,new THREE.MeshStandardMaterial({color:0xffffff,metalness:1,roughness:.16,envMap:env,envMapIntensity:1.5}));tor.frustumCulled=false;
 sc.add(tor);
+function ss(a,b,x){x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)}
 function loop(t){requestAnimationFrame(loop);var dt=Math.min((t-lt)/1000||.016,.05);lt=t;
-var tg=document.body.classList.contains('prof')?1:0;RP=rm?tg:(tg>RP?Math.min(tg,RP+dt/1.9):Math.max(tg,RP-dt/1.3));
-if(RP===0){cv.style.opacity=0;document.body.style.setProperty('--hr','0px');if(!tg)document.querySelectorAll('.pro.show').forEach(function(p){p.classList.remove('show')});return}
+var tg=document.body.classList.contains('prof')?1:0;RP=rm?tg:(tg>RP?Math.min(tg,RP+dt/2.3):Math.max(tg,RP-dt/1.7));
+if(RP===0){cv.style.opacity=0;curHR=0;if(!tg)document.querySelectorAll('.pro.show').forEach(function(p){p.classList.remove('show')});return}
 var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;
-var e=RP<.5?4*RP*RP*RP:1-Math.pow(-2*RP+2,3)/2;
-var s1=Math.hypot(w,h)/2*4.4146/(1.46*h)*1.1,sc2=.25*Math.pow(s1/.25,e);
-document.body.style.setProperty('--hr',(RP>=1?Math.hypot(w,h):1.7*sc2*h/4.4146)+'px');
+var s1=Math.hypot(w,h)/2*4.4146/(1.46*h)*1.1,k1=ss(.22,.56,RP),rb=.03+.27*ss(0,.3,RP),R=1.7*k1,r=rb+(.24-rb)*k1,sc2=Math.pow(s1,ss(.5,1,RP));
+curHR=RP>=1?Math.hypot(w,h):R*sc2*h/4.4146;
+var a=document.querySelector('.pro.show');if(a)a.style.clipPath='circle('+curHR+'px at 50% 50%)';
 if(RP>=1){cv.style.opacity=0;return}
 cv.style.opacity=1;
 var pr=rd.getPixelRatio();if(cv.width!==Math.round(w*pr)||cv.height!==Math.round(h*pr)){rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
-tor.scale.setScalar(sc2);tor.rotation.set(0,0,0);rd.render(sc,cam)}
+shape(R,r);tor.scale.setScalar(sc2);tor.rotation.set(0,0,0);rd.render(sc,cam)}
 glOK=true;requestAnimationFrame(loop);
-}catch(err){document.body.style.setProperty('--hr','150vmax')}
+}catch(err){curHR=5000}
 var h=location.hash.slice(1),m=/^p(\d+)$/.exec(h);
 if(m&&P[+m[1]]){pA.classList.remove('on');pD.classList.add('on');cur='detail';mark();render(+m[1])}else if(h&&document.getElementById('ov-'+h))setOv(h);
 })();
